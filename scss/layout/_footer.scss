@@ -1,0 +1,89 @@
+// ==============================================
+// FOOTER
+// Minimal, clean footer for musician site
+// ==============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.footer {
+  background-color: $bg-secondary;
+  border-top: 1px solid $border-light;
+  padding: $spacing-2xl $spacing-lg;
+  margin-top: auto;
+  
+  &_container {
+    @include container;
+  }
+  
+  &_content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-xl;
+    margin-bottom: $spacing-xl;
+    
+    @include tablet {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  }
+  
+  &_section {
+    h3 {
+      font-family: $font-accent;
+      font-size: $font-size-small;
+      font-weight: $font-weight-semibold;
+      text-transform: uppercase;
+      letter-spacing: $letter-spacing-widest;
+      color: $text-muted;
+      margin-bottom: $spacing-md;
+    }
+    
+    p, a {
+      font-size: $font-size-medium;
+      color: $text-secondary;
+      margin-bottom: $spacing-xs;
+      display: block;
+    }
+    
+    a {
+      transition: color $transition-fast, transform $transition-fast;
+      
+      &:hover {
+        color: $text-primary;
+      }
+    }
+  }
+  
+  &_social {
+    display: flex;
+    gap: $spacing-md;
+    
+    a {
+      width: 40px;
+      height: 40px;
+      @include flex-center;
+      border: 1px solid $border-color;
+      transition: border-color $transition-fast, background-color $transition-fast;
+      
+      &:hover {
+        border-color: $text-primary;
+        background-color: $bg-elevated;
+      }
+      
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+  
+  &_bottom {
+    text-align: center;
+    
+    p {
+      font-size: $font-size-small;
+      color: $text-muted;
+      letter-spacing: $letter-spacing-wide;
+      margin: 0;
+    }
+  }
+}

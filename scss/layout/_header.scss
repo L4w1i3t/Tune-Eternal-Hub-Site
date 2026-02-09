@@ -1,0 +1,54 @@
+// ==============================================
+// HEADER
+// Sleek, minimal header with subtle visibility
+// ==============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba($black, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid $border-light;
+  z-index: $z-sticky;
+  transition: background-color $transition-base, border-color $transition-base;
+  
+  // Scrolled state - slightly more opaque
+  &.scrolled {
+    background-color: rgba($black, 0.95);
+    border-bottom-color: $border-color;
+  }
+  
+  &_container {
+    @include container;
+    @include flex-between;
+    padding-top: $spacing-md;
+    padding-bottom: $spacing-md;
+    
+    @include tablet {
+      padding-top: $spacing-lg;
+      padding-bottom: $spacing-lg;
+    }
+  }
+  
+  &_logo {
+    font-family: $font-heading;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wider;
+    transition: opacity $transition-fast;
+    
+    @include tablet {
+      font-size: $font-size-2xl;
+    }
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

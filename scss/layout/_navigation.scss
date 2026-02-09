@@ -1,0 +1,173 @@
+// ==============================================
+// NAVIGATION
+// Full-screen immersive menu for musician site
+// ==============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Full-screen mobile navigation overlay
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $bg-primary;
+  z-index: $z-overlay;
+  padding: $spacing-xl;
+  padding-top: 120px;
+  transform: translateX(100%);
+  transition: transform $transition-slow;
+  overflow-y: auto;
+  
+  // Subtle gradient overlay
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at top right, rgba($gray-700, 0.3) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  
+  &.active {
+    transform: translateX(0);
+    
+    .nav_item {
+      // Staggered animation for menu items
+      @for $i from 1 through 10 {
+        &:nth-child(#{$i}) {
+          animation: slideInNav 0.4s ease forwards;
+          animation-delay: #{0.05s * $i};
+        }
+      }
+    }
+  }
+  
+  .nav_list {
+    @include flex-column;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-sm;
+    min-height: 60vh;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .nav_item {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .nav_link {
+    display: block;
+    font-family: $font-heading;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: $font-weight-bold;
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+    padding: $spacing-sm $spacing-md;
+    transition: color $transition-fast, transform $transition-fast;
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%) scaleX(0);
+      width: 4px;
+      height: 60%;
+      background-color: $white;
+      transition: transform $transition-fast;
+      transform-origin: left;
+    }
+    
+    &:hover,
+    &.active {
+      color: $text-primary;
+      transform: translateX(8px);
+      
+      &::before {
+        transform: translateY(-50%) scaleX(1);
+      }
+    }
+    
+    &.active {
+      color: $text-primary;
+    }
+  }
+}
+
+// Hamburger Menu Button
+.hamburger {
+  @include button-reset;
+  @include flex-center;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  z-index: $z-modal;
+  margin-left: auto;
+  transition: transform $transition-fast;
+  
+  @include focus-visible;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+  
+  &_line {
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background-color: $text-primary;
+    transition: all $transition-base;
+    
+    &:nth-child(1) {
+      top: 12px;
+    }
+    
+    &:nth-child(2) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    &:nth-child(3) {
+      bottom: 12px;
+    }
+  }
+  
+  &.active {
+    .hamburger_line {
+      &:nth-child(1) {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+      }
+      
+      &:nth-child(2) {
+        opacity: 0;
+        transform: translateX(10px);
+      }
+      
+      &:nth-child(3) {
+        bottom: 50%;
+        transform: translateY(50%) rotate(-45deg);
+      }
+    }
+  }
+}
+
+// Nav animation keyframes
+@keyframes slideInNav {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

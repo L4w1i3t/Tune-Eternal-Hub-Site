@@ -1,0 +1,48 @@
+{
+  "featuredProjects": [
+    {
+      "id": "project-1",
+      "title": "Something something placeholder im running out of ideas",
+      "type": "Video",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": null,
+      "videoUrl": "#",
+      "externalLink": "#"
+    },
+    {
+      "id": "project-2",
+      "title": "Cranking my Hog",
+      "type": "Podcast",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Weekly conversations about music production.",
+      "image": null,
+      "videoUrl": "#",
+      "externalLink": "#"
+    }
+  ],
+  "collaborations": [
+    {
+      "id": "collab-1",
+      "title": "Collab 1",
+      "type": "Collab",
+      "description": "Lorem ipsum dolor sit amet.",
+      "image": null,
+      "link": "#"
+    },
+    {
+      "id": "collab-2",
+      "title": "Collab 2",
+      "type": "Remix",
+      "description": "Lorem ipsum dolor sit amet.",
+      "image": null,
+      "link": "#"
+    },
+    {
+      "id": "collab-3",
+      "title": "Collab 3",
+      "type": "Feacher",
+      "description": "Lorem ipsum dolor sit amet.",
+      "image": null,
+      "link": "#"
+    }
+  ]
+}

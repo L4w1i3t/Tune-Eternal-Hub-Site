@@ -1,0 +1,29 @@
+// Main SCSS Entry Point
+// Tune Eternal - Musician Hub Site
+
+// Abstracts (variables, mixins - no output)
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+// Base styles
+@use 'base/reset';
+@use 'base/typography';
+
+// Layout
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/navigation';
+
+// Components
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/utilities';
+
+// Page-specific styles
+@use 'pages/home';
+@use 'pages/about';
+@use 'pages/contact';
+@use 'pages/discography';
+@use 'pages/merch';
+@use 'pages/beatspacks';
+@use 'pages/otherprojects';

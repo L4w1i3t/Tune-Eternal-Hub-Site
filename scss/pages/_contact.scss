@@ -1,0 +1,79 @@
+// ==============================================
+// LINKS PAGE (formerly Contact)
+// ==============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Platform links container
+.platform-links {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+// Individual platform link card
+.platform-link {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md $spacing-lg;
+  background-color: $bg-elevated;
+  border: 1px solid $border-color;
+  color: $text-primary;
+  text-decoration: none;
+  transition: all $transition-base;
+
+  &:hover {
+    border-color: $text-primary;
+    background-color: $bg-card;
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+
+  &_icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $text-secondary;
+    transition: color $transition-fast;
+  }
+
+  &:hover &_icon {
+    color: $text-primary;
+  }
+
+  &_icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  &_label {
+    font-family: $font-accent;
+    font-size: $font-size-large;
+    font-weight: $font-weight-semibold;
+    letter-spacing: $letter-spacing-wide;
+  }
+
+  // Arrow indicator pushed to the right
+  &_arrow {
+    margin-left: auto;
+    flex-shrink: 0;
+    color: $text-subtle;
+    transition: color $transition-fast, transform $transition-fast;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &:hover &_arrow {
+    color: $text-primary;
+    transform: translateX(4px);
+  }
+}

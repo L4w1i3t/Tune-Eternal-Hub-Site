@@ -1,0 +1,188 @@
+// ==============================================
+// BUTTONS
+// Bold, striking button styles for musician site
+// ==============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs;
+  padding: $spacing-sm $spacing-lg;
+  font-family: $font-accent;
+  font-size: $font-size-small;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  transition: all $transition-base;
+  position: relative;
+  overflow: hidden;
+  
+  @include focus-visible;
+  
+  // Primary - solid white
+  &--primary {
+    background-color: $white;
+    color: $black;
+    
+    &:hover {
+      background-color: $gray-200;
+      transform: translateY(-2px);
+      box-shadow: $shadow-glow;
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+  
+  // Secondary - dark with border
+  &--secondary {
+    background-color: $bg-elevated;
+    color: $text-primary;
+    border: 1px solid $border-color;
+    
+    &:hover {
+      background-color: $bg-card;
+      border-color: $text-primary;
+      transform: translateY(-2px);
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+  
+  // Outline - transparent with border
+  &--outline {
+    background-color: transparent;
+    border: 1px solid $text-primary;
+    color: $text-primary;
+    
+    &:hover {
+      background-color: $white;
+      color: $black;
+    }
+  }
+  
+  // Ghost - minimal, just text
+  &--ghost {
+    background-color: transparent;
+    color: $text-secondary;
+    padding: $spacing-xs $spacing-sm;
+    
+    &:hover {
+      color: $text-primary;
+    }
+  }
+  
+  // Icon button
+  &--icon {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 1px solid $border-color;
+    background-color: transparent;
+    color: $text-primary;
+    
+    &:hover {
+      background-color: $bg-elevated;
+      border-color: $text-primary;
+    }
+    
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  
+  // Size variants
+  &--large {
+    padding: $spacing-md $spacing-xl;
+    font-size: $font-size-medium;
+  }
+  
+  &--small {
+    padding: $spacing-xs $spacing-sm;
+    font-size: $font-size-small;
+  }
+  
+  &--full {
+    width: 100%;
+  }
+}
+
+// Play button (for music)
+.btn-play {
+  @include button-reset;
+  @include flex-center;
+  width: 64px;
+  height: 64px;
+  border: 2px solid $white;
+  border-radius: $radius-full;
+  color: $white;
+  transition: all $transition-base;
+  
+  &:hover {
+    background-color: $white;
+    color: $black;
+    transform: scale(1.1);
+    box-shadow: $shadow-glow-strong;
+  }
+  
+  svg {
+    width: 24px;
+    height: 24px;
+    margin-left: 4px; // Visual centering for play icon
+  }
+  
+  &--large {
+    width: 80px;
+    height: 80px;
+    
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  
+  &--small {
+    width: 48px;
+    height: 48px;
+    
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+
+// Link styled as button
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  font-family: $font-accent;
+  font-size: $font-size-small;
+  font-weight: $font-weight-medium;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wider;
+  color: $text-secondary;
+  transition: color $transition-fast, gap $transition-fast;
+  
+  &:hover {
+    color: $text-primary;
+    gap: $spacing-sm;
+  }
+  
+  svg {
+    width: 16px;
+    height: 16px;
+    transition: transform $transition-fast;
+  }
+}

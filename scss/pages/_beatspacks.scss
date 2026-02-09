@@ -1,0 +1,26 @@
+// ==============================================
+// BEATS & PACKS PAGE
+// ==============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Beats list container
+.beats-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+// Extended horizontal card for beats
+.card--horizontal {
+  .card_actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    padding: $spacing-sm $spacing-md;
+    
+    @include tablet {
+      padding: $spacing-md $spacing-lg;
+    }
+  }
+}

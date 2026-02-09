@@ -1,0 +1,16 @@
+{
+  "products": [
+    {
+      "id": "merch-1",
+      "title": "Vinyl",
+      "category": "Music",
+      "description": "Lorem ipsum dolor sit amet.",
+      "image": null,
+      "price": 10000,
+      "variants": [],
+      "purchaseLink": "#",
+      "inStock": true
+    }
+  ],
+  "categories": ["Apparel", "Accessories", "Music"]
+}

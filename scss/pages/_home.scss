@@ -1,0 +1,177 @@
+// ==============================================
+// HOME PAGE
+// Landing page styles for musician site
+// ==============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Home hero - dramatic, full-screen
+.home-hero {
+  min-height: 100vh;
+  @include flex-center;
+  @include flex-column;
+  position: relative;
+  overflow: hidden;
+  
+  &_content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    padding: $spacing-xl;
+  }
+  
+  &_title {
+    font-size: $font-size-h1;
+    @include text-glow($white, 0.2);
+    margin-bottom: $spacing-md;
+    
+    // Optional: animated gradient text effect
+    // background: linear-gradient(135deg, $white 0%, $gray-400 50%, $white 100%);
+    // background-size: 200% auto;
+    // -webkit-background-clip: text;
+    // -webkit-text-fill-color: transparent;
+    // animation: shine 3s linear infinite;
+  }
+  
+  &_subtitle {
+    font-family: $font-accent;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-normal;
+    color: $text-secondary;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-widest;
+    margin-bottom: $spacing-xl;
+  }
+  
+  &_actions {
+    display: flex;
+    gap: $spacing-md;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  // Scroll indicator
+  &_scroll {
+    position: absolute;
+    bottom: $spacing-xl;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    
+    span {
+      display: block;
+      width: 24px;
+      height: 40px;
+      border: 2px solid $gray-500;
+      border-radius: 12px;
+      position: relative;
+      
+      &::before {
+        content: '';
+        position: absolute;
+        top: 8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 4px;
+        height: 8px;
+        background-color: $gray-500;
+        border-radius: 2px;
+        animation: scrollIndicator 2s infinite;
+      }
+    }
+  }
+}
+
+@keyframes scrollIndicator {
+  0%, 100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+// Featured section
+.home-featured {
+  @include section-padding;
+  
+  &_header {
+    text-align: center;
+    margin-bottom: $spacing-2xl;
+  }
+  
+  &_label {
+    font-family: $font-accent;
+    font-size: $font-size-small;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-widest;
+    color: $text-muted;
+    margin-bottom: $spacing-sm;
+    display: block;
+  }
+}
+
+// Latest release section
+.home-release {
+  @include section-padding;
+  background-color: $bg-secondary;
+  
+  &_grid {
+    display: grid;
+    gap: $spacing-xl;
+    align-items: center;
+    
+    @include tablet {
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-3xl;
+    }
+  }
+  
+  &_artwork {
+    position: relative;
+    
+    img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+    
+    // Play button overlay
+    .btn-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity $transition-base;
+    }
+    
+    &:hover .btn-play {
+      opacity: 1;
+    }
+  }
+  
+  &_info {
+    @include flex-column;
+    gap: $spacing-md;
+  }
+  
+  &_label {
+    font-family: $font-accent;
+    font-size: $font-size-small;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-widest;
+    color: $text-muted;
+  }
+  
+  &_title {
+    margin-bottom: 0;
+  }
+  
+  &_description {
+    color: $text-secondary;
+    font-size: $font-size-large;
+  }
+}

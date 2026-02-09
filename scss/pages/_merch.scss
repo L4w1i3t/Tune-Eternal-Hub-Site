@@ -1,0 +1,13 @@
+// ==============================================
+// MERCH PAGE
+// ==============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Price display
+.price {
+  font-family: $font-heading;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $text-primary;
+}

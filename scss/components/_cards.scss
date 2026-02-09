@@ -1,0 +1,228 @@
+// ==============================================
+// CARDS
+// Dark, sleek card styles for musician site
+// ==============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.card {
+  background-color: $bg-elevated;
+  border: 1px solid $border-light;
+  overflow: hidden;
+  transition: all $transition-base;
+  position: relative;
+  
+  &:hover {
+    border-color: $border-color;
+    transform: translateY(-4px);
+    
+    .card_image img {
+      transform: scale(1.05);
+    }
+    
+    .card_overlay {
+      opacity: 1;
+    }
+  }
+  
+  &_image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background-color: $bg-card;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform $transition-slow;
+    }
+  }
+  
+  &_overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba($black, 0.8) 0%, transparent 50%);
+    @include flex-center;
+    opacity: 0;
+    transition: opacity $transition-base;
+  }
+  
+  &_content {
+    padding: $spacing-md;
+  }
+  
+  &_label {
+    font-family: $font-accent;
+    font-size: $font-size-small;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-widest;
+    color: $text-muted;
+    margin-bottom: $spacing-xs;
+  }
+  
+  &_title {
+    font-family: $font-heading;
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-wide;
+    color: $text-primary;
+    margin-bottom: $spacing-xs;
+    line-height: 1.2;
+  }
+  
+  &_description {
+    font-size: $font-size-medium;
+    color: $text-muted;
+    line-height: 1.5;
+    margin-bottom: $spacing-md;
+  }
+  
+  &_meta {
+    font-size: $font-size-small;
+    color: $text-subtle;
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+  
+  &_footer {
+    @include flex-between;
+    padding-top: $spacing-sm;
+    border-top: 1px solid $border-light;
+    margin-top: $spacing-sm;
+  }
+  
+  // Horizontal card variant
+  &--horizontal {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    align-items: center;
+    
+    @include tablet {
+      grid-template-columns: 150px 1fr auto;
+    }
+    
+    .card_image {
+      aspect-ratio: 1 / 1;
+      height: 100%;
+    }
+    
+    .card_content {
+      @include flex-column;
+      justify-content: center;
+      padding: $spacing-sm $spacing-md;
+      
+      @include tablet {
+        padding: $spacing-md;
+      }
+    }
+    
+    .card_description {
+      margin-bottom: 0;
+      display: none;
+      
+      @include tablet {
+        display: block;
+      }
+    }
+    
+    .card_actions {
+      display: flex;
+      align-items: center;
+      gap: $spacing-sm;
+      padding: $spacing-sm $spacing-md;
+      border-left: 1px solid $border-light;
+      
+      @include tablet {
+        gap: $spacing-md;
+        padding: $spacing-md $spacing-lg;
+      }
+    }
+  }
+  
+  // Featured/large card
+  &--featured {
+    .card_image {
+      aspect-ratio: 16 / 9;
+    }
+    
+    .card_title {
+      font-size: $font-size-2xl;
+    }
+  }
+  
+  // Track/song card
+  &--track {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    align-items: center;
+    gap: $spacing-md;
+    padding: $spacing-sm $spacing-md;
+    border: none;
+    border-bottom: 1px solid $border-light;
+    
+    &:hover {
+      background-color: $bg-card;
+      transform: none;
+    }
+    
+    .card_image {
+      width: 60px;
+      height: 60px;
+      aspect-ratio: 1 / 1;
+    }
+    
+    .card_content {
+      padding: 0;
+    }
+    
+    .card_title {
+      font-size: $font-size-base;
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Grid layouts for cards
+.card-grid {
+  display: grid;
+  gap: $spacing-lg;
+  
+  // 2-column grid (for featured/larger items)
+  &--2 {
+    grid-template-columns: 1fr;
+    
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  // 3-column grid (standard)
+  &--3 {
+    grid-template-columns: 1fr;
+    
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  // 4-column grid (smaller items)
+  &--4 {
+    grid-template-columns: repeat(2, 1fr);
+    
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    @include desktop {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

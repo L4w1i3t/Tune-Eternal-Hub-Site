@@ -1,0 +1,81 @@
+{
+  "beats": [
+    {
+      "id": "beat-1",
+      "title": "Beat Name One",
+      "genre": "Hip-Hop",
+      "bpm": 140,
+      "key": "C Minor",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "image": null,
+      "audioPreview": null,
+      "price": {
+        "lease": 30,
+        "exclusive": 200
+      },
+      "purchaseLink": "#"
+    },
+    {
+      "id": "beat-2",
+      "title": "Beat Name Two",
+      "genre": "Trap",
+      "bpm": 150,
+      "key": "G Minor",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "image": null,
+      "audioPreview": null,
+      "price": {
+        "lease": 35,
+        "exclusive": 250
+      },
+      "purchaseLink": "#"
+    },
+    {
+      "id": "beat-3",
+      "title": "Beat Name Three",
+      "genre": "R&B",
+      "bpm": 90,
+      "key": "E Minor",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "image": null,
+      "audioPreview": null,
+      "price": {
+        "lease": 40,
+        "exclusive": 300
+      },
+      "purchaseLink": "#"
+    }
+  ],
+  "samplePacks": [
+    {
+      "id": "pack-1",
+      "title": "Pack One",
+      "category": "Drums",
+      "description": "Lorem ipsum dolor sit amet. 200+ samples included.",
+      "image": null,
+      "sampleCount": 200,
+      "price": 25,
+      "purchaseLink": "#"
+    },
+    {
+      "id": "pack-2",
+      "title": "Pack Two",
+      "category": "Melodics",
+      "description": "Lorem ipsum dolor sit amet. 50+ loops included.",
+      "image": null,
+      "sampleCount": 50,
+      "price": 20,
+      "purchaseLink": "#"
+    },
+    {
+      "id": "pack-3",
+      "title": "Pack Three",
+      "category": "SFX",
+      "description": "Lorem ipsum dolor sit amet. 100+ textures & FX.",
+      "image": null,
+      "sampleCount": 100,
+      "price": 15,
+      "purchaseLink": "#"
+    }
+  ]
+}

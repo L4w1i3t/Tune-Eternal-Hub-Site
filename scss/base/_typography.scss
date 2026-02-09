@@ -1,0 +1,186 @@
+// ==============================================
+// TYPOGRAPHY
+// Bold, impactful type system for a musician
+// ==============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Headings - uppercase, bold, statement-making
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  font-weight: $font-weight-bold;
+  line-height: 1.1;
+  margin-bottom: $spacing-md;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+  color: $text-primary;
+}
+
+h1 {
+  font-size: $font-size-h1;
+  letter-spacing: $letter-spacing-tight;
+  margin-bottom: $spacing-lg;
+  
+  // Large headings can have subtle glow
+  @include text-glow($white, 0.15);
+}
+
+h2 {
+  font-size: $font-size-h2;
+}
+
+h3 {
+  font-size: $font-size-h3;
+}
+
+h4 {
+  font-size: $font-size-h4;
+  font-family: $font-accent;
+  letter-spacing: $letter-spacing-wider;
+}
+
+// Body text
+p {
+  margin-bottom: $spacing-sm;
+  font-size: $font-size-base;
+  line-height: 1.7;
+  color: $text-secondary;
+}
+
+// Lead/intro paragraphs
+.text-lead {
+  font-size: $font-size-xl;
+  line-height: 1.6;
+  color: $text-secondary;
+  font-weight: $font-weight-normal;
+}
+
+// Small text
+.text-small {
+  font-size: $font-size-small;
+  color: $text-muted;
+}
+
+.text-medium {
+  font-size: $font-size-medium;
+}
+
+.text-large {
+  font-size: $font-size-large;
+}
+
+.text-xl {
+  font-size: $font-size-xl;
+}
+
+// Text alignment
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+// Text colors
+.text-primary {
+  color: $text-primary;
+}
+
+.text-secondary {
+  color: $text-secondary;
+}
+
+.text-muted {
+  color: $text-muted;
+}
+
+.text-subtle {
+  color: $text-subtle;
+}
+
+// Font weights
+.font-normal {
+  font-weight: $font-weight-normal;
+}
+
+.font-medium {
+  font-weight: $font-weight-medium;
+}
+
+.font-semibold {
+  font-weight: $font-weight-semibold;
+}
+
+.font-bold {
+  font-weight: $font-weight-bold;
+}
+
+.font-black {
+  font-weight: $font-weight-black;
+}
+
+// Text transforms
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.normal-case {
+  text-transform: none;
+}
+
+// Letter spacing
+.tracking-tight {
+  letter-spacing: $letter-spacing-tight;
+}
+
+.tracking-normal {
+  letter-spacing: $letter-spacing-normal;
+}
+
+.tracking-wide {
+  letter-spacing: $letter-spacing-wide;
+}
+
+.tracking-wider {
+  letter-spacing: $letter-spacing-wider;
+}
+
+.tracking-widest {
+  letter-spacing: $letter-spacing-widest;
+}
+
+// Special text styles
+.text-accent {
+  font-family: $font-accent;
+}
+
+// Decorative label style (like "NEW RELEASE", "FEATURED")
+.label {
+  display: inline-block;
+  font-family: $font-accent;
+  font-size: $font-size-small;
+  font-weight: $font-weight-semibold;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-widest;
+  color: $text-muted;
+  padding: $spacing-xs $spacing-sm;
+  border: 1px solid $border-color;
+  
+  &--highlight {
+    color: $text-primary;
+    border-color: $text-primary;
+  }
+}

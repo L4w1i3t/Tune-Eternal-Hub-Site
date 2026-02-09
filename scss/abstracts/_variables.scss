@@ -1,0 +1,114 @@
+// ==============================================
+// TUNE ETERNAL - MUSICIAN'S HUB
+// Dark, bold aesthetic for an artist's presence
+// ==============================================
+
+// Color Palette - Monochrome with depth
+$black: #000000;
+$black-rich: #0a0a0a;
+$gray-900: #121212;
+$gray-800: #1a1a1a;
+$gray-700: #242424;
+$gray-600: #333333;
+$gray-500: #555555;
+$gray-400: #888888;
+$gray-300: #aaaaaa;
+$gray-200: #cccccc;
+$gray-100: #e5e5e5;
+$white: #ffffff;
+
+// Semantic color assignments
+$bg-primary: $black-rich;
+$bg-secondary: $gray-900;
+$bg-elevated: $gray-800;
+$bg-card: $gray-700;
+
+$text-primary: $white;
+$text-secondary: $gray-300;
+$text-muted: $gray-400;
+$text-subtle: $gray-500;
+
+$border-color: $gray-600;
+$border-light: $gray-700;
+
+// Accent (keeping neutral for now - white highlight with subtle glow)
+$accent-color: $white;
+$accent-hover: $gray-200;
+
+// Typography - Bold, impactful fonts for a musician
+$font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-heading: 'Oswald', 'Bebas Neue', 'Impact', sans-serif;
+$font-accent: 'Space Grotesk', 'Inter', sans-serif;
+
+// Font Sizes - More dramatic scale
+$font-size-base: 16px;
+$font-size-small: 13px;
+$font-size-medium: 15px;
+$font-size-large: 18px;
+$font-size-xl: 22px;
+$font-size-2xl: 28px;
+$font-size-h1: clamp(3rem, 8vw, 6rem);
+$font-size-h2: clamp(2rem, 5vw, 3.5rem);
+$font-size-h3: clamp(1.5rem, 3vw, 2rem);
+$font-size-h4: 1.25rem;
+
+// Font Weights
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// Letter Spacing
+$letter-spacing-tight: -0.02em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.05em;
+$letter-spacing-wider: 0.1em;
+$letter-spacing-widest: 0.2em;
+
+// Spacing - Generous breathing room
+$spacing-unit: 8px;
+$spacing-xs: $spacing-unit;
+$spacing-sm: $spacing-unit * 2;
+$spacing-md: $spacing-unit * 3;
+$spacing-lg: $spacing-unit * 4;
+$spacing-xl: $spacing-unit * 6;
+$spacing-2xl: $spacing-unit * 8;
+$spacing-3xl: $spacing-unit * 12;
+$spacing-4xl: $spacing-unit * 16;
+
+// Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-wide: 1280px;
+$breakpoint-ultrawide: 1600px;
+
+// Transitions - Smooth, cinematic feel
+$transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slower: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Border Radius - Sharper, more angular (musician aesthetic)
+$radius-none: 0;
+$radius-sm: 2px;
+$radius-md: 4px;
+$radius-lg: 6px;
+$radius-full: 9999px;
+
+// Shadows - Darker, more dramatic
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+$shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+$shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.7);
+$shadow-glow: 0 0 20px rgba(255, 255, 255, 0.1);
+$shadow-glow-strong: 0 0 40px rgba(255, 255, 255, 0.15);
+
+// Z-index scale
+$z-base: 1;
+$z-dropdown: 100;
+$z-sticky: 500;
+$z-overlay: 900;
+$z-modal: 1000;
+$z-toast: 1100;

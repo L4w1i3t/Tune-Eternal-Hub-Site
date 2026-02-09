@@ -1,0 +1,80 @@
+// ==============================================
+// ABOUT PAGE
+// ==============================================
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+// Bio grid layout
+.about-grid {
+  display: grid;
+  gap: $spacing-2xl;
+  align-items: start;
+  
+  @include tablet {
+    grid-template-columns: 1fr 1.5fr;
+    gap: $spacing-3xl;
+  }
+}
+
+.about-image {
+  svg, img {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    
+    @include tablet {
+      position: sticky;
+      top: 120px;
+    }
+  }
+}
+
+.about-content {
+  h2 {
+    margin-bottom: $spacing-lg;
+  }
+  
+  h3 {
+    font-size: $font-size-xl;
+    margin-top: $spacing-xl;
+    margin-bottom: $spacing-md;
+  }
+  
+  p {
+    margin-bottom: $spacing-md;
+  }
+}
+
+// Stats grid
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: $spacing-lg;
+  text-align: center;
+  
+  @include tablet {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat-item {
+  padding: $spacing-lg;
+  
+  .stat-number {
+    display: block;
+    font-family: $font-heading;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    line-height: 1;
+    margin-bottom: $spacing-xs;
+  }
+  
+  .stat-label {
+    font-family: $font-accent;
+    font-size: $font-size-small;
+    text-transform: uppercase;
+    letter-spacing: $letter-spacing-widest;
+    color: $text-muted;
+  }
+}

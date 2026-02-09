@@ -1,0 +1,112 @@
+// ==============================================
+// RESET & BASE STYLES
+// Dark, immersive foundation for musician site
+// ==============================================
+@use '../abstracts/variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: $font-size-base;
+  scroll-behavior: smooth;
+  
+  // Custom scrollbar for dark theme
+  scrollbar-width: thin;
+  scrollbar-color: $gray-600 $bg-primary;
+}
+
+// Webkit scrollbar styling
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-primary;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $gray-600;
+  border-radius: $radius-full;
+  
+  &:hover {
+    background: $gray-500;
+  }
+}
+
+body {
+  font-family: $font-primary;
+  font-weight: $font-weight-normal;
+  color: $text-primary;
+  background-color: $bg-primary;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+  
+  // Subtle texture/noise could be added here
+}
+
+main {
+  flex: 1;
+  position: relative;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color $transition-fast;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+// Selection styling
+::selection {
+  background-color: $white;
+  color: $black;
+}
+
+// Focus styling for accessibility
+:focus-visible {
+  outline: 2px solid $accent-color;
+  outline-offset: 2px;
+}

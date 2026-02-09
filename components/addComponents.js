@@ -135,9 +135,9 @@ function fixNavigationLinks() {
     const navLinks = document.querySelectorAll(".nav-menu a");
     navLinks.forEach((link) => {
       const href = link.getAttribute("href");
-      // Fix links that point to pages directory
+      // Fix links that point to pages directory - just remove the "pages/" prefix
       if (href.startsWith("pages/")) {
-        link.setAttribute("href", "../" + href);
+        link.setAttribute("href", href.replace("pages/", ""));
       } else if (href === "index.html") {
         link.setAttribute("href", "../index.html");
       }

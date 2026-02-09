@@ -1,7 +1,33 @@
 // Main JavaScript File
 // Tune Eternal - Musician Hub Site
 
+// Get the base path for the site (handles GitHub Pages repository name)
+function getBasePath() {
+    const path = window.location.pathname;
+    // Check if we're on GitHub Pages (has repo name in path)
+    const match = path.match(/^\/([^\/]+)\//);
+    if (match && !match[1].endsWith('.html') && match[1] !== 'pages') {
+        return '/' + match[1];
+    }
+    return '';
+}
+
+// Fix all links on page load to work with GitHub Pages
+function fixAllLinks() {
+    const basePath = getBasePath();
+    if (!basePath) return; // No need to fix if no base path
+    
+    const links = document.querySelectorAll('a[href^="/"]');
+    links.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && href.startsWith('/')) {
+            link.setAttribute('href', basePath + href);
+        }
+    });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    fixAllLinks();
     initHeaderScroll();
     initBackToTop();
     initSmoothScroll();

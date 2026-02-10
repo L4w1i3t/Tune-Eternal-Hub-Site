@@ -1,22 +1,11 @@
 // adds the header and footer dynamically to each page without hardcoding
 
-// Get the base path for the site (handles GitHub Pages repository name)
-function getBasePath() {
-  const path = window.location.pathname;
-  // Check if we're on GitHub Pages (has repo name in path)
-  const match = path.match(/^\/([^\/]+)\//);
-  if (match && !match[1].endsWith('.html') && match[1] !== 'pages') {
-    return '/' + match[1];
-  }
-  return '';
-}
-
 document.addEventListener("DOMContentLoaded", function () {
   // Determine if we're in a subdirectory and handle both development and production paths
   const path = window.location.pathname;
   const isInSubdirectory =
     path.includes("/pages/") || path.includes("\\pages\\");
-  const componentPath = isInSubdirectory ? "../components/" : "./components/";
+  const componentPath = isInSubdirectory ? "/components/" : "./components/";
 
   // Load header
   const headerPlaceholder = document.getElementById("header-placeholder");
@@ -29,8 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
         // Initialize mobile menu after header is loaded
         initMobileMenu();
 
-        // Fix navigation links for base path
+        // Fix navigation links
         fixNavigationLinks();
+
+        // Fix logo link when in subdirectory
+        fixLogoLink();
 
         // Highlight active nav link
         highlightCurrentPage();
@@ -132,17 +124,39 @@ function initMobileMenu() {
   }
 }
 
-// Function to fix navigation links for both local and GitHub Pages
+// Function to fix navigation links when in subdirectory
 function fixNavigationLinks() {
-  const basePath = getBasePath();
-  const navLinks = document.querySelectorAll(".nav-menu a, .header_logo");
-  
-  navLinks.forEach((link) => {
-    const href = link.getAttribute("href");
-    if (href && href.startsWith("/")) {
-      link.setAttribute("href", basePath + href);
+  const path = window.location.pathname;
+  const isInSubdirectory =
+    path.includes("/pages/") || path.includes("\\pages\\");
+
+  if (isInSubdirectory) {
+    // Use the correct selector for navigation links (.nav-menu instead of .nav-links)
+    const navLinks = document.querySelectorAll(".nav-menu a");
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      // Fix links that point to pages directory
+      if (href.startsWith("pages/")) {
+        link.setAttribute("href", "../" + href);
+      } else if (href === "index.html") {
+        link.setAttribute("href", "../index.html");
+      }
+    });
+  }
+}
+
+// Function to fix the logo link when in subdirectory
+function fixLogoLink() {
+  const path = window.location.pathname;
+  const isInSubdirectory =
+    path.includes("/pages/") || path.includes("\\pages\\");
+
+  if (isInSubdirectory) {
+    const logoLink = document.getElementById("logo-link") || document.querySelector(".header_logo");
+    if (logoLink && (logoLink.getAttribute("href") === "index.html" || logoLink.getAttribute("href") === "")) {
+      logoLink.setAttribute("href", "../index.html");
     }
-  });
+  }
 }
 
 // Function to highlight current page in navigation
